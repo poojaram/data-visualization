@@ -50,7 +50,7 @@ ggplot(carbon_gdp_2014, aes(x = GDP2014, y = EN.ATM.CO2E.PC)) + geom_point(aes(s
 \br
 \newline
 
-### **Chloropleth Maps**###
+### **Chloropleth Maps** ###
 
 
 The scatter plot represents the positive co-relation between the Carbon Emission Per Capita and Gross Domestic Product divided as per the continents. We observe that the GDP and Per Capita Carbon Emission are directly proportional to each other. The continents of America, Europe and Oceania have gentler slopes as compared to Africa and Asia meaning that the per capita emission is declining over time. However, there appears to be a disparity when it comes to the total emission with respect to a given GDP with the developed continents like America having greater plot sizes.
