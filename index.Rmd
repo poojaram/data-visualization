@@ -1,0 +1,81 @@
+---
+title: "Effects of Climate on World Economics"
+author: "Pooja Shree Ramanathan"
+date: "May 7th, 2018"
+output: html_document
+---
+ 
+\br
+\br
+\newline
+
+## **Introduction** ##
+
+Here we are plotting the **Carbon Emission per capita** data based on **Country** and **Continent**, and for the year **2014**. We are considering Carbon dioxide emission data because it is one of the major *greenhouse gases*. Green house gas absorbs and emits radiant energy within the thermal infrared range. This process is the fundamental cause of the greenhouse effect. 
+
+\newline
+Thesis: \newline 
+\newline
+
+It can be observed from the graphs given below that developed economies though may have a smaller per capita carbon emission when compared to underdeveloped/developing economies but they have a greater total Carbon Emssion economy-wide as compared to the developing/under-developed economies.
+\br
+\newline
+\br
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+ source('assignment.R') 
+```
+
+
+```{r echo = FALSE, message = FALSE, results='show', warning=FALSE, fig.align='center'}
+
+# First visualization to describe the general trend of the chosen data
+ggplot1
+
+```
+\newline
+\newline
+\br
+
+The scatter plot shows the carbon emissions in terms of different continents. The x-axis highlights the Gross Domestic Product while the y-axis highlights the Carbon Emission Per Capita. We tend to see that there stands to be positive co-relation which is represented by a positive slope between the GDP of a country and their per capita carbon emission. The more developed economies like America have a greater total emission (larger dot) than the developing economies. The maximum emission in the plot can be represented by the total numerical value of 5e+06 while the minimum can be 10^6. Examining CO2 per capita around the world also shows us the gulf between the developed world's responsibility for climate change and that of the developing world. While Australia is approximately 20.6 tonnes per person (partly because of its reliance on CO2-intensive coal) and the UK is half that at 9.7 (explained in part by relatively CO2-light gas power stations), India is on a mere 1.2 (approx.). Poorer African nations such as Kenya are on an order magnitude less again – the average Kenyan has a footprint of just 0.3 tonnes approximately.(a figure that's likely to drop even lower with the country's surge in wind power).
+
+```{r echo = FALSE, message = FALSE, results='show', warning=FALSE, fig.align='center'}
+
+# A more elaborate visual representation of the chosen data
+ggplot(carbon_gdp_2014, aes(x = GDP2014, y = EN.ATM.CO2E.PC)) + geom_point(aes(size = EN.ATM.CO2E.KT)) + geom_smooth(method = "lm", se = FALSE, color = "red") + labs(title = "Carbon Emissions vs GDP (Continent Correlation)", x = "Gross Domestic Product", y = "Carbon Emissions Per Capita", size = "Total Emissions") + facet_grid(~Continent_Name)
+
+
+```
+\newline
+\br
+\newline
+
+### **Chloropleth Maps**###
+
+
+The scatter plot represents the positive co-relation between the Carbon Emission Per Capita and Gross Domestic Product divided as per the continents. We observe that the GDP and Per Capita Carbon Emission are directly proportional to each other. The continents of America, Europe and Oceania have gentler slopes as compared to Africa and Asia meaning that the per capita emission is declining over time. However, there appears to be a disparity when it comes to the total emission with respect to a given GDP with the developed continents like America having greater plot sizes.
+\newline
+\br
+```{r echo = FALSE, message = FALSE, results='show', warning=FALSE, fig.align='center'}
+
+ggplot3_emission.choropleth
+
+```
+\newline
+\br
+\newline
+
+
+The Choropleth repsents the world map with the Longitude represented by the x-axis and the Latitude represented by the y-axis. The data retrieved supports the data highlighted by the previous two graphs. Here, the map is colored based on the emission of CO2 per capita. We can see that most of Northern America are along the safer range with a good ratio between CO2 emission and their GDP. However, Southern regions have higher emissions compared to their GDP and countries in the Center and East lie along the middle ground. Also, data for parts of the african continent and Asia are missing. A reason as to why the devoloped nations have a better per capita ratio maybe due to the fact that they outsource the industrial activities to devoloping nations. We observe that on a global map, the comparitavely developed economies (higher GDP) have a greater value for the total carbon emission released in the given year of 2014 (base year) than compared to a developing/under-developed economies (lower GDP). Eg- Russia which is more developed than parts of Africa has a greater total emission (marked in green than red)
+\newline
+\br
+```{r echo = FALSE, message = FALSE, results='show', warning=FALSE, fig.align='center'}
+
+ggplot4_interactive_choropleth
+
+```
+\newline
+
+
+The Choropleth is highly interactive. It is sourced from the World Bank.The color scheme represents the variability in the Per Capita Carbon Emission of various countries. The developed economies have a lower saturation scheme than the under-developed/developing ones, which have a higher saturation colour scheme. (Eg- India has a higher color saturation than Australia) meaning that it has a greater per-capita carbon emission than Australia. Mainly, Russia and India have higher saturation of Per Capita Carbon Emission compared to other countries. Australia, Northern and Southern America have slighly lower Carbon Emission per Capita and the European Countries have much lower rates. These reflect on how each of these nations have adopted environmental friendly ways to produce energy such Wind Energy, Solar Energy, Hydro Power etc. 
+\newline
